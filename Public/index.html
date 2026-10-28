@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#111014">
+  <title>FLAVOX MOTION — Image to Video</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <div class="brand-mark">F<span>✦</span></div>
+      <div class="brand-copy"><b>FLAVOX <em>MOTION</em></b><small>AI IMAGE TO VIDEO</small></div>
+      <span class="pill"><i></i> TEST BUILD</span>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">MAGIC HOUR • AI STUDIO</p>
+      <h1>Bring your image<br><span>to life.</span></h1>
+      <p class="sub">Upload a photo, describe the movement, and generate an AI video.</p>
+    </section>
+
+    <form id="form">
+      <label class="section-label" for="imageInput">01 / SOURCE IMAGE</label>
+      <label class="dropzone" id="dropzone" for="imageInput">
+        <input id="imageInput" name="image" type="file" accept="image/jpeg,image/png,image/webp,image/avif" required>
+        <img id="preview" alt="Selected image preview" hidden>
+        <div id="uploadPrompt" class="upload-prompt">
+          <span class="upload-icon">＋</span>
+          <b>Choose an image</b>
+          <small>JPG, PNG, WEBP or AVIF · max 12 MB</small>
+        </div>
+      </label>
+
+      <label class="section-label" for="prompt">02 / MOTION PROMPT</label>
+      <textarea id="prompt" name="prompt" maxlength="1200" required placeholder="Example: Slow cinematic camera push-in, hair and clothes move gently in the wind, natural motion, preserve the subject's face and details."></textarea>
+
+      <div class="settings">
+        <div><label class="section-label" for="duration">DURATION</label>
+          <select id="duration" name="duration"><option value="5">5 seconds</option><option value="10">10 seconds</option></select>
+        </div>
+        <div><label class="section-label" for="resolution">RESOLUTION</label>
+          <select id="resolution" name="resolution"><option value="480p">480p · faster test</option><option value="720p">720p · higher detail</option></select>
+        </div>
+      </div>
+
+      <button class="generate" id="generate" type="submit"><span>✦</span> GENERATE VIDEO <b>↗</b></button>
+      <p class="notice">Generation uses Magic Hour account credits. Review your cost and account access before running a job.</p>
+    </form>
+
+    <section id="statusCard" class="status-card" hidden aria-live="polite">
+      <div class="spinner" id="spinner"></div>
+      <div><b id="statusTitle">Preparing your video…</b><p id="statusText">Keep this page open while Magic Hour processes the image.</p></div>
+    </section>
+
+    <section id="resultCard" class="result-card" hidden>
+      <div class="section-label">03 / YOUR RESULT</div>
+      <video id="resultVideo" controls playsinline></video>
+      <a id="downloadLink" class="download" download="flavox-motion.mp4">↓ Download video</a>
+    </section>
+    <footer>FLAVOX MOTION <span>•</span> IMAGE TO VIDEO TEST</footer>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
